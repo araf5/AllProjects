@@ -1,0 +1,9 @@
+1. Open XAMMP & start- Apache & MySQL
+2. Explorer > htdocs > Create folder "Web"
+3. Put all website related files in 'Web" folder
+4. Go- http://localhost/phpmyadmin/ > Create DB named "login_sample"db"> Create tables (users) with 
+5. Attributes-id (BIGINT & tick on A_I Commnets)), user_id (BIGINT), user_name, password, date (Timestamp)
+5. Copy all code files into 'htdocs'
+6. Go browser and type- localhost/2nd/index.php or login.php
+
+https://www.youtube.com/watch?v=WYufSGgaCZ8&t=1843s

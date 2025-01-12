@@ -1,0 +1,203 @@
+CREATE TABLE table_publisher (
+PublisherName VARCHAR(50) PRIMARY KEY NOT NULL,
+PublisherAddress VARCHAR(100) NOT NULL,
+PublisherPhone VARCHAR(20) NOT NULL
+);
+INSERT INTO `table_publisher` (`PublisherName`, `PublisherAddress`, `PublisherPhone`) VALUES 
+('Stephen', 'Washington', '638174144'), 
+('Robert Kiyosaki and Sharon Lechter', 'Tokyo', '663839273'), 
+('Hazaz Ali', 'Turkey', '13441342');
+
+CREATE TABLE table_book (
+BookID INT PRIMARY KEY NOT NULL,
+Book_Title VARCHAR(100) NOT NULL,
+PublisherName VARCHAR(100) NOT NULL
+);
+INSERT INTO `table_book` (`BookID`, `Book_Title`, `PublisherName`) VALUES 
+('4110', 'A Great story', 'Stephen'), 
+('45223', 'Poor dad, rich dad', 'Robert Kiyosaki and Sharon Lechter'), 
+('64743', 'Book with no name', 'Haziz Al');
+
+CREATE TABLE table_library_branch (
+library_branch_BranchID INT PRIMARY KEY NOT NULL,
+library_branch_BranchName VARCHAR(100) NOT NULL, 
+library_branch_BranchAddress VARCHAR(200) NOT NULL
+);
+INSERT INTO `table_library_branch` (`library_branch_BranchID`, `library_branch_BranchName`, `library_branch_BranchAddress`) VALUES 
+('111', 'book house', 'Tokyo'), 
+('222', 'Book fair', 'Berlin'), 
+('333', 'Fook farm', 'Denvar');
+
+CREATE TABLE table_book_copies (
+CopiesID INT PRIMARY KEY NOT NULL ,
+BookID INT NOT NULL,
+BranchID INT NOT NULL,
+No_Of_Copies INT NOT NULL
+);
+INSERT INTO `table_book_copies` (`CopiesID`, `BookID`, `BranchID`, `No_Of_Copies`) VALUES 
+('312', '4110', '111', '01'), 
+('313', '45223', '222', '02'), 
+('414', '64743', '333', '03');
+
+SELECT FROM table_book_copies 
+
+CREATE TABLE table_book_authors (
+AuthorID INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+BookID INT NOT NULL CONSTRAINT fk_book_id3 FOREIGN KEY REFERENCES table_book(book_BookID) ON UPDATE CASCADE ON DELETE CASCADE, 
+table_book(book_BookID) ON UPDATE CASCADE,
+AuthorName VARCHAR(50) NOT NULL
+);
+INSERT INTO `table_book_copies` (`CopiesID`, `BookID`, `BranchID`, `No_Of_Copies`) VALUES 
+('312', '4110', '111', '01'), 
+('313', '45223', '222', '02'), 
+('414', '64743', '333', '03');
+ 
+SELECT COUNT(No_Of_Copies)FROM table_book_copies; 
+
+
+SELECT FROM table_book_authors;
+
+
+CREATE TABLE IF NOT EXISTS book(
+isbn char(13) NOT NULL,
+title varchar(80) NOT NULL,
+author varchar(80) NOT NULL,
+category varchar(80) NOT NULL,
+price int(4) unsigned NOT NULL,
+copies int(10) unsigned NOT NULL
+);
+INSERT INTO book ('isbn', 'title', 'author, 'category, 'price, 'copies') VALUES
+('9788654552277', 'X-Men: God Loves, Man Kills', 'Chris', 'Comics', 98, 39),
+('0964161484100', 'Mike Tyson : Undisputed Truth', 'Larry Sloman, Mike Tyson', 'Sports', 654, 79),
+('6901142585540', 'V for Vendetta', 'Alan Moore', 'Comics', 600, 23),
+('9094996245442', 'When Breath Becomes Air', 'Paul Kalanithi', 'Medical', 500, 94),
+('8653491200700', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction', 432, 120);
+
+
+CREATE TABLE IF NOT EXISTS book_issue (
+    issue_id int(11) NOT NULL,
+    member varchar(20) NOT NULL,
+    book_isbn varchar(13) NOT NULL,
+    due_date date NOT NULL,
+    last_reminded date DEFAULT NULL
+) ;
+INSERT INTO `book_issue` (`issue_id`, `member`, `book_isbn`, `due_date`, `last_reminded`) VALUES 
+('2110', '01', '533532', '2022-12-01', '2022-11-01'),
+('2111', '02', '22132', '2022-12-05', '2022-11-07'),
+('2112', '03', '3421', '2022-12-10', '2022-11-12')
+;
+
+
+
+CREATE TABLE IF NOT EXISTS librarian (
+id int(11) NOT NULL,
+username varchar(20) NOT NULL,
+password char(40) NOT NULL
+) ;
+INSERT INTO librarian (id, username, password) VALUES
+(1, 'Aziz', '123456789');
+
+
+CREATE TABLE IF NOT EXISTS member (
+id int(11) NOT NULL,
+username varchar(20) NOT NULL,
+password char(40) NOT NULL,
+name varchar(80) NOT NULL,
+email varchar(80) NOT NULL,
+balance int(4) NOT NULL
+);
+
+CREATE TRIGGER issue_book BEFORE INSERT ON book_issue
+FOR EACH ROW BEGIN
+  SET NEW.due_date = DATE_ADD(CURRENT_DATE, INTERVAL 20 DAY);
+    UPDATE member SET balance = balance - (SELECT price FROM book WHERE isbn = NEW.book_isbn) WHERE username = NEW.member;
+    UPDATE book SET copies = copies - 1 WHERE book_isbn = NEW.isbn;
+    DELETE FROM pending_book_requests WHERE member = NEW.member AND book_isbn = NEW.isbn;
+END
+
+
+
+CREATE TRIGGER return_book BEFORE DELETE ON book_issue
+ FOR EACH ROW BEGIN
+    UPDATE member SET balance = balance + (SELECT price FROM book WHERE isbn = OLD.book_isbn) WHERE username = OLD.member;
+    UPDATE book SET copies = copies + 1 WHERE isbn = OLD.book_isbn;
+END
+
+
+CREATE TRIGGER add_member 
+AFTER INSERT ON member
+ FOR EACH ROW DELETE BEGIN FROM pending_registrations WHERE username = NEW.username END
+
+
+CREATE TRIGGER remove_member AFTER DELETE ON member
+ FOR EACH ROW DELETE BEGIN FROM pending_book_requests WHERE member = OLD.username END
+
+
+
+CREATE TABLE IF NOT EXISTS pending_book_requests (
+request_id int(11) NOT NULL,
+member varchar(20) NOT NULL,
+book_isbn varchar(13) NOT NULL,
+time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS pending_registrations (
+username varchar(30) NOT NULL,
+password char(20) NOT NULL,
+name varchar(40) NOT NULL,
+email varchar(20) NOT NULL,
+balance int(10),
+time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO pending_registrations(username, password, name, email, balance, time) VALUES
+('Robin200', '7t6hg$56y^', 'Robin', 'robin@gmail.com', 200, '2021-03-21 08:59:00'),
+('Aadhya100', 'Ujgf(76G5$#f@df', 'Aadhya', 'aadhya100@gmail.com', 1500, '2021-03-21 2:14:53');
+
+
+
+
+ALTER TABLE book
+ADD PRIMARY KEY (isbn);
+
+ALTER TABLE book_issue
+ADD PRIMARY KEY (issue_id);
+
+ALTER TABLE librarian
+ADD PRIMARY KEY (id), 
+ADD UNIQUE KEY username (username);
+
+ALTER TABLE member
+ADD PRIMARY KEY (id), 
+ADD UNIQUE KEY username (username), 
+ADD UNIQUE KEY email (email);
+
+ALTER TABLE pending_book_requests
+ADD PRIMARY KEY (request_id);
+
+ALTER TABLE pending_registrations
+ADD PRIMARY KEY (username);
+
+SELECT *
+FROM book
+INNER JOIN tale_book_author ON tale_book_author.author=book.author;
+
+SELECT *
+FROM book_issue
+DECLARE 
+   -- variable declaration 
+   message  varchar2(20):= 'Book is issued!'; 
+BEGIN 
+   /* 
+   *  PL/SQL executable statement(s) 
+   */ 
+   dbms_output.put_line(message); 
+END; 
+
+SELECT copies.book_copies_BranchID AS [Branch ID], branch.library_branch_BranchName AS [Branch Name],
+	   copies.book_copies_No_Of_Copies AS Number_of_Copies,
+	   book.book_Title AS Book_Title
+	   FROM table_book_copies AS copies
+			INNER JOIN table_book AS book ON copies.book_copies_BookID = book.book_BookID
+			INNER JOIN table_library_branch AS branch ON book_copies_BranchID = branch.library_branch_BranchID
+	   WHERE book.book_Title = 'poor dad, rich dad' AND branch.library_branch_BranchName = 'book house'

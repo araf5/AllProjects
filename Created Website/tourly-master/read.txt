@@ -1,0 +1,5 @@
+1. Open XAMMP & start- Apache & MySQL
+2. Explorer > htdocs > Create folder "Web"
+3. Put all website related files in 'Web" folder
+4. Go browser and tyoe- localhost/web/reg.php
+For Database- localhost/phpmyadmin > Database >

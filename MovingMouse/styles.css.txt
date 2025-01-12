@@ -1,0 +1,44 @@
+//Moving the submit button vertically and horizontally
+
+var buttonState = 0;
+
+function handleMouseOver() {
+  const name = document.getElementById("nameInput").value;
+  const email = document.getElementById("emailInput").value;
+  const password = document.getElementById("passwordInput").value;
+  const agreementChecked = document.getElementById("agreementCheck").checked;
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (
+    name === "" ||
+    !email.match(emailRegex) ||
+    password === "" ||
+    !agreementChecked
+  ) {
+    moveButton();
+    return false;
+  } else {
+    document.getElementById("submit").style.cursor = "pointer";
+    return true;
+  }
+}
+
+function moveButton() {
+  const button = document.getElementById("submit");
+
+  if (buttonState === 0) {
+    button.style.transform = "translateX(-150%)";
+    buttonState = 1;
+  } else if (buttonState === 1) {
+    button.style.transform = "translateX(150%)";
+    buttonState = 2;
+  } else {
+    button.style.transform = "translateX(0)";
+    buttonState = 0;
+  }
+}
+
+function resetBtn() {
+  const button = document.getElementById("submit");
+  button.style.transform = "translateX(0)";
+}

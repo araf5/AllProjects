@@ -1,0 +1,13 @@
+Open terminal
+- sudo apt update
+- sudo apt upgrade
+- sudo apt install xdg-utils
+- sudo apt --fix-missing install xdg-utils
+- sudo apt-get install libgnome2-bin
+
+- Open Ubuntu in Windows
+- cd .. (Give this code until gets- "/$")
+- cd /mnt/c/Users/
+- cd Administrator/Desktop/Bank/
+- chmod +x unix.sh
+- ./unix.sh

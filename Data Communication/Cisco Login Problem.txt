@@ -1,0 +1,7 @@
+1. open Windows defender firewall with advance secuirty > Inbound Rules > New Rule > Program >
+This program path > C:\Program Files\Cisco Packet Tracer 8.2.1\bin > Select "PacketTracer.exe" >
+Block Connection > Next > Next > give name "Cisco Packet Tracer" > Finish.
+
+2. open Windows defender firewall with advance secuirty > Outbound Rules > New Rule > Program >
+This program path > C:\Program Files\Cisco Packet Tracer 8.2.1\bin > Select "PacketTracer.exe" >
+Block Connection > Next > Next > give name "Cisco Packet Tracer" > Finish

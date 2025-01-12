@@ -1,0 +1,9 @@
+1. Open XAMMP & start- Apache & MySQL
+2. Explorer > htdocs > Create folder "Web"
+3. Put all website related files in 'Web" folder
+4. Go- http://localhost/phpmyadmin/ > Create DB named "project" > Create tables (users) with 
+	4 attributes-id, username, email, password
+5. Copy all code files into 'htdocs'
+6. Go browser and tyope- localhost/1st/index.php or login.php
+
+https://www.youtube.com/watch?v=O0ttkT9Uc6k

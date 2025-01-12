@@ -1,0 +1,9 @@
+1. Place the README.md in the root of your project directory.
+2. Place the .gitignore file in the same directory.
+3. Initialize a Git repository (if not done yet): git init
+4. Add all files and commit: 
+	git add .
+	git commit -m "Initial commit with Selenium testing project"
+5. Push to a remote repository (e.g., GitHub).
+
+	

@@ -1,0 +1,49 @@
+Make a bank management system using shell script which must have-
+An admin panel which is by default given username- admin & password- admin
+1. create account for customer- username, user id, password, debit or credit
+2. login with username or user id and password
+3. view account details
+4. deposit 
+5. count no of deposit
+6. withdraw 
+7. check transaction history
+8. logout
+9. show all accounts
+10. delete user/customer
+11. search customer account by user id
+12. clear screen
+13. exit 
+This project's output will show in google chrome browser by html,css,js
+
+when user selects 1, then the following will be provided: username, user id, password, debit or credit.
+After creating the account, a go back option is added, then he/she can login by that created account.
+Add this feature in that code.
+
+The deposit option includes:
+1. user id 
+2. amount in ৳
+Then a successful message will show with the name of the account holder with current time and date.
+Add the following requirements on this project.
+
+Add count no of deposit, withdraw money, check transaction history, logout.
+
+Add delete user or customer, search customer account by user id, clear screen and last one is exit.
+
+When the user wants to check the transaction history (deposit and withdraw), it will want the user id and password. Then it will show the amount of deposit and withdrawal.
+
+when user wants to see the Show All Accounts, it will show only username and balance.
+
+Add address in create account section
+Password must be hidden in terminal.
+
+Add new line command (\n), where necessary.
+
+When a user selects an option, he or she will be taken to a new page.
+Decorate the full code for interactive output. Code must be correct.
+
+give some color and bring the content to the middle.
+Now, write the full code correctly.
+
+The currency type is BDT.
+Add author of this code name "Arafat".
+Write the final and updated code correctly.

@@ -1,0 +1,179 @@
+/* Logo styling outside the form background */
+.outer-logo {
+    position: absolute;
+    top: 20px;                /* Distance from the top of the page */
+    right: 20px;              /* Distance from the right edge of the page */
+    font-size: 2rem;          /* Large text for the logo */
+    font-weight: bold;        /* Bold text */
+    color: #4CAF50;           /* Match color scheme */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for effect */
+    animation: logoFadeIn 1s ease; /* Fade-in animation */
+}
+
+/* Centering the outer logo */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Fade-in animation for the logo */
+@keyframes logoFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form container with side shadow */
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.1), -4px 0px 15px rgba(0, 0, 0, 0.1); /* Shadows on both sides */
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    animation: slideDown 0.8s ease;
+}
+
+/* Adjusted Sign Up heading spacing */
+h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 0; /* Removed any top margin to reduce space above */
+    margin-bottom: 10px;
+}
+
+/* Logo styling with animation and hover effect */
+.logo-container {
+    text-align: center;
+    margin: 0; /* Removed all margin around the logo container */
+    padding: 0; /* Removed any padding if present */
+}
+
+.logo {
+    max-width: 100%;
+    width: 180px;
+    height: auto;
+    animation: logoBounce 2s infinite ease-in-out;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Bouncing animation for the logo */
+@keyframes logoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Decorative label styling */
+.form-label-decorative {
+    font-size: 1rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* Form controls */
+input[type="email"], 
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s ease;
+    position: relative;
+}
+
+input[type="email"]:focus, 
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #4CAF50;
+}
+
+/* Password container and eye icon */
+.password-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 68%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Checkbox and terms link */
+.form-check-label {
+    font-size: 0.9rem;
+    color: #555;
+    display: inline;
+}
+
+.terms-link {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* Submit button with hover animation */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

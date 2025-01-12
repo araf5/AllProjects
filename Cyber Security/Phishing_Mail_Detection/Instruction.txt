@@ -1,0 +1,6 @@
+- Folder- phishing_mail_detection
+- Open your XAMPP control panel and start the Apache and MySQL services.
+- Access phpMyAdmin- http://localhost/phpmyadmin
+- Create a new database named "phishing_mail_detection"
+- Move all your project files and folders  to the "htdocs" folder inside your XAMPP installation directory. 
+- For run: http://localhost/Phishing_Mail_Detection

@@ -1,0 +1,10 @@
+1. Move the project files into htdocs
+2. Start- Apache & MySQL service on XAMPP
+3. Open http://localhost/phpmyadmin/
+4. Create DB named "atnit"
+5. Import "expdb.sql"
+6. Open in browser- https://http://localhost/elearning/home.php
+7. Run
+8. For admin panels:
+http://localhost/elearning/adminpanel1.php
+http://localhost/elearning/adminpanel.php

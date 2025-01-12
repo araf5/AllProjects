@@ -1,0 +1,40 @@
+My Topic: Enhancing Web Application Quality through Module Testing 
+
+Test Types			Test Case
+Functional Tests		Valid login, invalid password, empty fields, adding products
+ (with Authentication)
+Input Validation		special characters, long input
+Edge Cases			Min/max character length for username/password
+Security Tests			Brute Force Attack Prevention
+
+For https://www.aliexpress.com/, i want to perform these test cases in Selenium to make a project.
+- My files contain with Selenium (Selenium-server-4.27.0.jar)) in where i want to integrate the project:
+- First, give me file structure,
+- Second, write codes correctly and carefully and without any errors one by one for Selenium not Maven or anything else.
+
+Here are my webdriver path: System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");	
+Package: package sampleapp;
+Main class: public class practice
+
+Well, complete the project.
+
+
+Modules = Parts
+
+- Check codes one-by-one because testings are running but not showing the processes in the website's interface.
+- Hold for a while in every testing
+- In FunctionalTests, perform: Valid login, invalid login, empty fields, adding products, checkpout
+- Add payment testing
+- In InputValidation, perform: special characters, long input
+- In EdgeCases, perform: Min/max character length for username/password
+- In SecurityTests, perform: Brute Force Attack Prevention
+- In practice (main java class), organize all the tests methods one after one so that 
+testings can be performed sequentially.
+Well, now write the codes carefully, correctly, without any error so that testings 
+will be executed successfully and showing the processes in the website's interfaces.
+
+Give me some professional website where I can perform these tests successfully. 
+
+Add this website () all the files where needs and make changes then write correctly every code without any error.
+
+As you remember all files for this project, recheck all the files and make a README.md file and .gitignore file
