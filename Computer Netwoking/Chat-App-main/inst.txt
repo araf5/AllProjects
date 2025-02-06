@@ -1,8 +1,0 @@
-1. Open Xampp & start- apache  & mysql &Open CMD in projct directory (Chat-App-main) with root access
-2. npm install
-3. npm audit > npm audit fix > npm fund
-4. node index.js
-5. Open in 2 different tabs/browsers- localhost:9000
-6. When a person sends message in a tab, another person can see that message
-
-https://github.com/NawinKumarSharma/Chat-App?tab=readme-ov-file
